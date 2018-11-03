@@ -1,7 +1,7 @@
 <?php
 /*Plugin Name: ACF Relationship Mods
 Description: Modifies the main posts table.
-Version: 1.0.1
+Version: 1.0.2
 License: GPLv2
 GitHub Plugin URI: https://github.com/aaronaustin/acf-relationship-mods
 */
@@ -72,12 +72,7 @@ add_filter('acf/fields/post_object/result', 'my_post_object_result');
 //add styles and scripts.  Load values for js vars.
 function acf_relationship_mods() {
     wp_register_script( 'acf_relationship_mods_script', plugins_url('acf-mods.js',__FILE__ ));
-    wp_enqueue_script('acf_relationship_mods_script');
-    wp_localize_script( 'acf_relationship_mods_script', 'postCategory', array( 'category' => get_the_category($_GET['post']), ) );
-    wp_localize_script( 'acf_relationship_mods_script', 'eventStart', array( 'date' => date('Y/m/d/', strtotime(get_field('start_date',$_GET['post']))), ) );
-    wp_localize_script( 'acf_relationship_mods_script', 'postDate', array( 'date' => date('Y/m/d/', strtotime(get_post_field('post_date',$_GET['post']))), ) );
-    wp_localize_script( 'acf_relationship_mods_script', 'postTitle', array( 'title' => get_the_title($_GET['post']), ) );
-}
+    wp_enqueue_script('acf_relationship_mods_script');}
 
 add_action( 'admin_init','acf_relationship_mods');
 
