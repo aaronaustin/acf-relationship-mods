@@ -46,12 +46,19 @@
 .acf-field-repeater .acf-field .acf-label label{
     font-weight: normal;
     font-size: 12px;
+    color: #555;
 }
 .acf-field-repeater .acf-field .acf-input .acf-input-wrap input{
     border: none;
     border-bottom: 1px solid #aaa;
     border-radius: 0;
     box-shadow: none;
+}
+.acf-field-repeater .acf-field .acf-input .acf-input-wrap input:focus{
+    border: none;
+    border-bottom: 1px solid #aaa;
+    border-radius: 0;
+    box-shadow: inset 0px -1px 0px #000 !important;
 }
 .acf-field-repeater .acf-field .acf-input .select2-selection{
     border: none;
