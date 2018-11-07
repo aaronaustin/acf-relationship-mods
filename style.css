@@ -43,3 +43,23 @@
 .select2-container .select2-selection--single {
     height: 30px;
 }
+.acf-field-repeater .acf-field .acf-label label{
+    font-weight: normal;
+    font-size: 12px;
+}
+.acf-field-repeater .acf-field .acf-input .acf-input-wrap input{
+    border: none;
+    border-bottom: 1px solid #aaa;
+    border-radius: 0;
+    box-shadow: none;
+}
+.acf-field-repeater .acf-field .acf-input .select2-selection{
+    border: none;
+    border-bottom: 1px solid #aaa;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}
+.acf-field-repeater .acf-field .acf-label{
+    margin: 0;
+}
