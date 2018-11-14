@@ -90,11 +90,12 @@ function my_acf_update_value($post_id) {
   //if in the event category - use the acf start_date field to set path.  Otherwise, grab date from the post date values.
   $date = $isEvent ? date('Y/m/d/', strtotime(get_field('start_date'))) : $_POST['aa'] .'/'. $_POST['mm'] .'/'. $_POST['jj'] .'/';
   $value = $date . $title;
+  $empty_string = "";
 
   update_field($pathField['key'], $value, $post_id);
   if(!$isEvent) {
-    update_field($start_date_field['key'], '', $post_id);
-    update_field($end_date_field['key'], '', $post_id);
+    update_field($start_date_field['key'], $empty_string, $post_id);
+    update_field($end_date_field['key'], $empty_string, $post_id);
   }
     
 }
