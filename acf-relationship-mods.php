@@ -1,7 +1,7 @@
 <?php
 /*Plugin Name: ACF Relationship Mods
 Description: Modifies the main posts table.
-Version: 1.0.6
+Version: 1.0.7
 License: GPLv2
 GitHub Plugin URI: https://github.com/aaronaustin/acf-relationship-mods
 */
@@ -90,7 +90,8 @@ function my_acf_update_value($post_id) {
   //if in the event category - use the acf start_date field to set path.  Otherwise, grab date from the post date values.
   $date = $isEvent ? date('Y/m/d/', strtotime(get_field('start_date'))) : $_POST['aa'] .'/'. $_POST['mm'] .'/'. $_POST['jj'] .'/';
   $value = $date . $title;
-  $empty_string = "";
+  $empty_string = "1980-01-01 00:00:00";
+  // $empty_string = "";
 
   update_field($pathField['key'], $value, $post_id);
   if(!$isEvent) {
