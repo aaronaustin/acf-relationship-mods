@@ -1,7 +1,7 @@
 <?php
 /*Plugin Name: ACF Relationship Mods
 Description: Modifies the main posts table.
-Version: 1.0.5
+Version: 1.0.6
 License: GPLv2
 GitHub Plugin URI: https://github.com/aaronaustin/acf-relationship-mods
 */
