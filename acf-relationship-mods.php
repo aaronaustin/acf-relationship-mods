@@ -78,16 +78,24 @@ add_action( 'admin_init','acf_relationship_mods');
 
 
 
-
+//save path depending on whether or not the post is in the event category
 function my_acf_update_value($post_id) {
   $pathField = get_field_object('path', $post_id);
+  $start_date_field = get_field_object('start_date', $post_id);
+  $end_date_field = get_field_object('end_date', $post_id);
   $category_id = $_POST['post_category'][1];
   $category = get_the_category_by_ID($category_id);
+  $isEvent = $category === 'Event';
   $title = sanitize_title($_POST['post_title']);
-  $date = $category == 'Event' ? date('Y/m/d/', strtotime(get_field('start_date'))) : $_POST['aa'] .'/'. $_POST['mm'] .'/'. $_POST['jj'] .'/';
+  //if in the event category - use the acf start_date field to set path.  Otherwise, grab date from the post date values.
+  $date = $isEvent ? date('Y/m/d/', strtotime(get_field('start_date'))) : $_POST['aa'] .'/'. $_POST['mm'] .'/'. $_POST['jj'] .'/';
   $value = $date . $title;
 
   update_field($pathField['key'], $value, $post_id);
+  if(!$isEvent) {
+    update_field($start_date_field['key'], '', $post_id);
+    update_field($end_date_field['key'], '', $post_id);
+  }
     
 }
 
